@@ -68,7 +68,7 @@ function Formatter(el, opts) {
   utils.addListener(self.el, 'keydown', function (evt) {
     self._keyDown(evt);
   });
-  utils.addListener(self.el, 'keypress', function (evt) {
+  utils.addListener(self.el, 'keyup', function (evt) {
     self._keyPress(evt);
   });
   utils.addListener(self.el, 'paste', function (evt) {
