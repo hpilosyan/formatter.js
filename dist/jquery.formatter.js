@@ -481,11 +481,12 @@ var formatter = function (patternMatcher, inptSel, utils) {
     // Init values
     self.hldrs = {};
     self.focus = 0;
+    self.el.setAttribute('maxlength', self.mLength);
     // Add Listeners
     utils.addListener(self.el, 'keydown', function (evt) {
       self._keyDown(evt);
     });
-    utils.addListener(self.el, 'keyup', function (evt) {
+    utils.addListener(self.el, 'keydown', function (evt) {
       self._keyPress(evt);
     });
     utils.addListener(self.el, 'paste', function (evt) {

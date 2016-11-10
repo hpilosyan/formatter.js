@@ -64,11 +64,13 @@ function Formatter(el, opts) {
   self.hldrs = {};
   self.focus = 0;
 
+  self.el.setAttribute('maxlength', self.mLength);
+
   // Add Listeners
   utils.addListener(self.el, 'keydown', function (evt) {
     self._keyDown(evt);
   });
-  utils.addListener(self.el, 'keyup', function (evt) {
+  utils.addListener(self.el, 'keydown', function (evt) {
     self._keyPress(evt);
   });
   utils.addListener(self.el, 'paste', function (evt) {
@@ -330,7 +332,7 @@ Formatter.prototype._removeChars = function () {
   if (this.sel.end > this.focus) {
     this.delta += this.sel.end - this.focus;
   }
-  
+
   // Account for shifts during removal
   var shift = 0;
 
